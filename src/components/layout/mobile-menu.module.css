@@ -1,0 +1,136 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  /* Just below the header (z-index 60), above everything on the page. */
+  z-index: 59;
+  padding-top: var(--menu-top, var(--header-h));
+  background: var(--color-bg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0s linear 0.25s;
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s var(--ease-out),
+    visibility 0s;
+}
+
+@media (min-width: 1000px) {
+  .overlay {
+    display: none;
+  }
+}
+
+.inner {
+  padding: 8px 20px calc(32px + env(safe-area-inset-bottom));
+}
+
+/* Each block rises into place a little after the one before it. */
+.item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s var(--ease-out);
+}
+
+.open .item {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.6s var(--ease-out);
+  transition-delay: calc(60ms + var(--i, 0) * 45ms);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 2px;
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.link:hover {
+  color: var(--color-ink);
+}
+
+.chevron {
+  color: var(--color-text-faint);
+  transition: transform 0.2s ease;
+}
+
+.link:active .chevron {
+  transform: translateX(3px);
+}
+
+.label {
+  margin: 28px 0 12px;
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+}
+
+.cats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.cat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-ink);
+  font-size: var(--text-md);
+  font-weight: 500;
+  transition:
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.cat:hover {
+  color: var(--color-ink);
+  border-color: var(--color-border-hover);
+}
+
+.cat:active {
+  transform: scale(0.98);
+}
+
+.cta {
+  margin-top: 24px;
+  height: 52px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-lg);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}

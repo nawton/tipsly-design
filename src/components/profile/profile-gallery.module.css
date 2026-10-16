@@ -1,0 +1,86 @@
+/* No photos: a short toned banner. One or two photos: a single wide photo. */
+.banner {
+  position: relative;
+  margin-top: 18px;
+  height: 240px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background-color: var(--tone);
+}
+
+.single {
+  height: 360px;
+}
+
+@media (max-width: 639px) {
+  .banner {
+    height: 180px;
+  }
+
+  .single {
+    height: 280px;
+  }
+}
+
+@media (min-width: 860px) {
+  .single {
+    height: 460px;
+  }
+}
+
+/* Three or more photos. Below 860px: a horizontal snap scroller that bleeds to the page edges. */
+.gallery {
+  margin: 18px -24px 0;
+  padding: 0 24px;
+  display: flex;
+  gap: 10px;
+  height: 360px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 24px;
+  scrollbar-width: none;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  flex: 0 0 86%;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background-color: var(--tone);
+}
+
+.img {
+  object-fit: cover;
+}
+
+@media (max-width: 639px) {
+  .gallery {
+    height: 280px;
+  }
+}
+
+/* 860px and up: hero on the left spanning both rows, two shots stacked on the right. */
+@media (min-width: 860px) {
+  .gallery {
+    margin: 18px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-rows: 1fr 1fr;
+    height: 460px;
+    overflow-x: visible;
+  }
+
+  .item {
+    flex: 1 1 auto;
+  }
+
+  .hero {
+    grid-row: 1 / span 2;
+  }
+}

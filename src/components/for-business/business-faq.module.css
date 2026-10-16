@@ -1,0 +1,116 @@
+.section {
+  background: var(--color-surface);
+  border-top: 1px solid #eae9e2;
+  border-bottom: 1px solid #eae9e2;
+  padding: clamp(64px, 8vw, 104px) 24px;
+  margin-bottom: clamp(64px, 8vw, 104px);
+}
+
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+}
+
+/* Heading beside the questions from 900px. */
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .head {
+    position: sticky;
+    top: 108px;
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -0.038em;
+}
+
+.lead {
+  margin: 14px 0 0;
+  font-size: var(--text-xl);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+.list {
+  border-top: 1px solid var(--color-border);
+  /* Lets the open/close height animate in browsers that support it. */
+  interpolate-size: allow-keywords;
+}
+
+.item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.item::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 0.35s var(--ease-out),
+    content-visibility 0.35s allow-discrete;
+}
+
+.item[open]::details-content {
+  block-size: auto;
+}
+
+.question {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+
+.question::-webkit-details-marker {
+  display: none;
+}
+
+.question:hover .toggle {
+  background: var(--color-surface-hover);
+  border-color: var(--color-border-hover);
+}
+
+.toggle {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.35s var(--ease-out),
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.item[open] .toggle {
+  transform: rotate(45deg);
+}
+
+.answer {
+  margin: 0;
+  padding: 0 48px 22px 0;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}

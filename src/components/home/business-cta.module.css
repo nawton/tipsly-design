@@ -1,0 +1,226 @@
+.section {
+  padding: clamp(64px, 8vw, 104px) 24px;
+}
+
+.card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--color-dark);
+  border-radius: var(--radius-xl);
+  padding: clamp(32px, 6vw, 72px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: 48px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: #9c9da3;
+}
+
+.title {
+  margin: 14px 0 0;
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -0.038em;
+  color: #fff;
+}
+
+.lead {
+  margin: 18px 0 0;
+  max-width: 480px;
+  font-size: var(--text-xl);
+  line-height: 1.5;
+  color: #b4b4b5;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.primary {
+  height: 48px;
+  padding: 0 22px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--color-dark);
+  font-size: var(--text-base);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease;
+}
+
+.primary:hover {
+  background: #ecebe5;
+  color: var(--color-dark);
+}
+
+.primary:active {
+  transform: scale(0.97);
+}
+
+.secondary {
+  height: 48px;
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: var(--text-base);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.secondary:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+/* Illustrative Boost preview */
+.mock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mockCard {
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--color-dark-2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mockSmall {
+  font-size: var(--text-sm);
+  color: #8c8d93;
+}
+
+.mockBiz {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mockAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: #2a2a2e;
+  color: #f0efe9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.mockBizText {
+  flex: 1;
+  min-width: 0;
+}
+
+.mockBizName {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: #fff;
+}
+
+.mockBizMeta {
+  font-size: var(--text-sm);
+  color: #9c9da3;
+}
+
+.mockChip {
+  height: 24px;
+  padding: 0 9px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  color: #e9e8e2;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.mockHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+  color: #8c8d93;
+}
+
+.mockExample {
+  color: #6f7076;
+}
+
+.mockBidRow {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.mockBidLabel {
+  font-size: var(--text-sm);
+  color: #9c9da3;
+}
+
+.mockBid {
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.mockButton {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.mockTrack {
+  margin-top: 14px;
+  height: 4px;
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.mockFill {
+  width: 62%;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: var(--radius-xs);
+}
+
+.mockCloses {
+  margin-top: 8px;
+  font-size: var(--text-sm);
+  color: #8c8d93;
+}

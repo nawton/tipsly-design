@@ -1,0 +1,88 @@
+.footer {
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 56px 24px 28px;
+}
+
+@media (max-width: 719px) {
+  .roomForBar {
+    padding-bottom: 104px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: 36px 32px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 280px;
+}
+
+.logo,
+.logo:hover {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  color: var(--color-ink);
+}
+
+.logoDot {
+  color: var(--color-accent);
+}
+
+.tagline,
+.note {
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: 1.55;
+}
+
+.tagline {
+  color: var(--color-text-subtle);
+}
+
+.note {
+  color: var(--color-text-muted);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heading {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.link {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+}
+
+.link:hover {
+  color: var(--color-ink);
+}
+
+.bottom {
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border-soft);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+}

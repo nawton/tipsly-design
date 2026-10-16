@@ -1,0 +1,16 @@
+.stars {
+  display: flex;
+  gap: 1px;
+}
+
+.wide {
+  gap: 2px;
+}
+
+.on {
+  color: var(--color-gold);
+}
+
+.off {
+  color: #d6d3c8;
+}

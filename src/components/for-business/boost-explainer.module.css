@@ -1,0 +1,166 @@
+.section {
+  padding: clamp(64px, 8vw, 104px) 24px;
+}
+
+.grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -0.038em;
+}
+
+.lead {
+  margin: 16px 0 0;
+  font-size: var(--text-xl);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+.rules {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.rule {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--color-border-input);
+}
+
+.ruleIcon {
+  margin-top: 2px;
+  color: var(--color-ink);
+}
+
+.ruleText {
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--color-ink-2);
+}
+
+/* Illustrative auction card */
+.mock {
+  padding: 28px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 30px 60px -36px rgba(20, 20, 30, 0.3);
+}
+
+.mockHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.mockSmall {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.mockMarket {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.mockExample {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-warning-ink);
+  background: var(--color-warning-soft);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.mockLeadRow {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.mockLeading {
+  font-size: var(--text-5xl);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+
+.mockLeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-success-soft);
+  color: var(--color-success-ink);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.mockBids {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mockBid,
+.mockBidMine {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+  font-size: var(--text-md);
+}
+
+.mockWho {
+  font-weight: 400;
+}
+
+.mockBidMine {
+  background: var(--color-accent-soft);
+}
+
+.mockBidMine .mockWho {
+  font-weight: 600;
+}
+
+.mockAmount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.mockButton {
+  margin-top: 18px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-lg);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

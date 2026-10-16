@@ -1,0 +1,166 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border: 1px solid var(--color-border-input);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.toggle:hover {
+  border-color: #bdbcb5;
+}
+
+.toggleOn {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-ink);
+  border-color: var(--color-accent-border);
+}
+
+.clear {
+  height: 34px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-accent);
+  animation: var(--kf-fade) 0.2s ease both;
+}
+
+.clear:hover {
+  color: var(--color-accent-link-hover);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-md);
+  color: var(--color-text-subtle);
+}
+
+.count {
+  white-space: nowrap;
+}
+
+.countValue {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.info {
+  position: relative;
+}
+
+.infoButton {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.infoButton:hover,
+.infoButtonOpen {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.infoPanel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 40;
+  width: min(340px, calc(100vw - 32px));
+  padding: 18px 20px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: var(--shadow-popover);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--text-md);
+  line-height: 1.5;
+  color: var(--color-ink-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top right;
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s var(--ease-out),
+    visibility 0.2s;
+}
+
+.infoPanelOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.infoPanel p {
+  margin: 0;
+}
+
+.infoTitle {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/*
+ * Phones: the button sits near the left edge once the row wraps, so a
+ * right-aligned panel would run off screen. Anchor it to the filter bar.
+ */
+@media (max-width: 719px) {
+  .bar {
+    position: relative;
+  }
+
+  .info {
+    position: static;
+  }
+
+  .infoPanel {
+    left: 0;
+    right: auto;
+    transform-origin: top left;
+  }
+}

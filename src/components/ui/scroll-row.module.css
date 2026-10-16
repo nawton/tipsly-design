@@ -1,0 +1,80 @@
+.row {
+  --fade-start: 0px;
+  --fade-end: 0px;
+  position: relative;
+}
+
+.fadeStart {
+  --fade-start: 56px;
+}
+
+.fadeEnd {
+  --fade-end: 56px;
+}
+
+/* 4px of padding (cancelled by the negative margin) keeps focus rings visible. */
+.track {
+  display: flex;
+  overflow-x: auto;
+  margin: -4px;
+  padding: 4px;
+  scrollbar-width: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--fade-start),
+    #000 calc(100% - var(--fade-end)),
+    transparent 100%
+  );
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 4px 12px -4px rgba(0, 0, 0, 0.18);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
+}
+
+.arrow:active {
+  transform: scale(0.92);
+}
+
+.arrowStart {
+  left: 0;
+}
+
+.arrowEnd {
+  right: 0;
+}
+
+/* Arrows only where there is a mouse; touch users swipe. */
+@media (hover: hover) and (pointer: fine) {
+  .arrow {
+    display: flex;
+  }
+
+  .arrowVisible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

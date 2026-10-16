@@ -1,0 +1,28 @@
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 40px;
+  margin-bottom: 32px;
+}
+
+.text {
+  max-width: 620px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -0.038em;
+}
+
+.lead {
+  margin: 14px 0 0;
+  font-size: var(--text-xl);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}

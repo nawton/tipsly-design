@@ -1,0 +1,5 @@
+.page {
+  /* backwards, not both: a transform left in place after the animation would
+     make the wrapper the containing block for position: fixed descendants. */
+  animation: var(--kf-page-in) 0.6s var(--ease-out) backwards;
+}

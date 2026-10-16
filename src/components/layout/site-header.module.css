@@ -1,0 +1,476 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(245, 244, 239, 0);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.solid {
+  background: rgba(245, 244, 239, 0.8);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.bar {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: height 0.35s var(--ease-out);
+}
+
+.barScrolled {
+  height: var(--header-h-scrolled);
+}
+
+.logo,
+.logo:hover {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  color: var(--color-ink);
+  display: flex;
+  margin-right: 18px;
+}
+
+.logoDot {
+  color: var(--color-accent);
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Responsive switches: full navigation from 1000px, a menu sheet below. */
+.desktopOnly {
+  display: none !important;
+}
+
+@media (min-width: 1000px) {
+  .desktopOnly {
+    display: flex !important;
+  }
+  .compactOnly {
+    display: none !important;
+  }
+}
+
+.nav {
+  align-items: center;
+  gap: 2px;
+}
+
+.menuWrap {
+  position: relative;
+}
+
+.navItem {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: var(--color-ink);
+  background: transparent;
+  border: 0;
+  transition: background 0.2s ease;
+}
+
+.navItem:hover,
+.navItemActive {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-ink);
+}
+
+.navButton {
+  padding: 0 10px 0 12px;
+  gap: 4px;
+}
+
+.chevron {
+  transition: transform 0.25s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Shared dropdown panel */
+.panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 32px 64px -32px rgba(20, 20, 30, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top left;
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s var(--ease-out),
+    visibility 0.2s;
+}
+
+.panelOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.catsPanel {
+  left: -8px;
+  width: 580px;
+  padding: 10px;
+}
+
+.catsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.catLink,
+.catLink:hover {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--color-ink);
+  transition: background 0.15s ease;
+}
+
+.catLink:hover {
+  background: var(--color-surface-hover);
+}
+
+.catIcon {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-sunken);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.catName {
+  font-size: var(--text-md);
+  font-weight: 500;
+}
+
+.catBlurb {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.citiesPanel {
+  left: -8px;
+  width: 520px;
+  padding: 18px 20px;
+}
+
+.citiesHint {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  margin-bottom: 8px;
+}
+
+.citiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 16px;
+}
+
+.cityLink {
+  padding: 7px 0;
+  font-size: var(--text-md);
+  font-weight: 400;
+  color: var(--color-ink);
+  transition: color 0.15s ease;
+}
+
+.cityLink:hover {
+  color: var(--color-accent);
+}
+
+.cityLinkCurrent {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* Icon buttons: saved, menu */
+.iconButton {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink);
+  transition: background 0.2s ease;
+}
+
+.iconButton:hover,
+.iconButtonActive {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.badge {
+  position: absolute;
+  top: 3px;
+  right: 2px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px var(--color-bg);
+  animation: var(--kf-pop) 0.35s ease both;
+}
+
+.savedPanel {
+  right: -8px;
+  width: min(360px, calc(100vw - 24px));
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.97);
+  transform-origin: top right;
+}
+
+.savedHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 8px;
+}
+
+.savedTitle {
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.savedCount {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+}
+
+.savedList {
+  max-height: 360px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.savedRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--radius-md);
+  transition: background 0.15s;
+}
+
+.savedRow:hover {
+  background: var(--color-surface-hover);
+}
+
+.savedLink,
+.savedLink:hover {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px 8px 10px;
+  color: var(--color-ink);
+}
+
+.savedAvatar {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.savedText {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.savedName,
+.savedMeta {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.savedName {
+  font-size: var(--text-md);
+  font-weight: 500;
+}
+
+.savedMeta {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.savedRemove {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.savedRemove:hover {
+  background: #e9e8e1;
+  color: var(--color-ink);
+}
+
+.savedEmpty {
+  padding: 20px 16px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.savedEmptyIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-sunken);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+.savedEmptyTitle {
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.savedEmptyText {
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: var(--color-text-subtle);
+  max-width: 250px;
+}
+
+.cta,
+.cta:hover {
+  margin-left: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-md);
+  font-weight: 500;
+  align-items: center;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.cta:hover {
+  background: var(--color-accent-hover);
+}
+
+.cta:active {
+  transform: scale(0.97);
+}
+
+/* While the full-screen menu is open the header blends into it. */
+.menuOpen {
+  background: var(--color-bg);
+  border-bottom-color: transparent;
+}
+
+/* Menu button: three bars that fold into a cross. */
+.burger {
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 12px;
+}
+
+.burger span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1.5px;
+  margin-top: -0.75px;
+  border-radius: 2px;
+  background: currentColor;
+  transition:
+    transform 0.4s var(--ease-out),
+    opacity 0.2s ease;
+}
+
+.burger span:nth-child(1) {
+  transform: translateY(-5px);
+}
+
+.burger span:nth-child(3) {
+  transform: translateY(5px);
+}
+
+.burgerOpen span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.burgerOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.2);
+}
+
+.burgerOpen span:nth-child(3) {
+  transform: rotate(-45deg);
+}

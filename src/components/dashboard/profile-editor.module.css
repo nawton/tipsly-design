@@ -1,0 +1,517 @@
+.gap6 {
+  gap: 6px;
+}
+
+.gap16 {
+  gap: 16px;
+}
+
+.gap18 {
+  gap: 18px;
+}
+
+/* Grunduppgifter */
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-md);
+  font-weight: 500;
+}
+
+.counter {
+  font-weight: 400;
+  color: var(--color-text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.counterOver {
+  color: var(--color-danger);
+}
+
+textarea.textarea {
+  height: auto;
+  padding: 12px 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 14px;
+}
+
+/* Bilder och logotyp */
+.logoRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.logoEmpty {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-muted);
+  border: 1.5px dashed #cfcec7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--tone-ink);
+}
+
+.logoText {
+  flex: 1;
+  min-width: 180px;
+}
+
+.logoTitle {
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.logoHint {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+  margin-top: 2px;
+}
+
+.logoActions {
+  display: flex;
+  gap: 8px;
+}
+
+.uploadButton {
+  position: relative;
+  white-space: nowrap;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  font-size: var(--text-md);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.uploadButton:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* The real file inputs are visually hidden; their labels show keyboard focus. */
+.fileInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.uploadButton:has(.fileInput:focus-visible),
+.addPhotos:has(.fileInput:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.removeLogo {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: transparent;
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: var(--color-danger);
+}
+
+.removeLogo:hover {
+  background: var(--color-danger-soft);
+}
+
+.dropzone {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 10px;
+  border-radius: var(--radius-lg);
+  border: 1.5px dashed var(--color-border-input);
+  background: var(--color-surface-subtle);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.dropzoneActive {
+  border-color: var(--color-accent);
+  background: #f2f5ff;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-surface-sunken);
+  animation: var(--kf-pop) 0.35s var(--ease-out) both;
+}
+
+.photoImg {
+  object-fit: cover;
+  display: block;
+}
+
+.photoRemove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgba(20, 20, 22, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.photoRemove:hover {
+  background: rgba(20, 20, 22, 0.8);
+}
+
+.addPhotos {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-border-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  color: var(--color-ink-2);
+  transition: box-shadow 0.2s ease;
+}
+
+.addPhotos:hover {
+  box-shadow: 0 0 0 1px var(--color-border-hover);
+}
+
+.addTitle {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.addHint {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.galleryFoot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.uploadError {
+  color: var(--color-danger);
+}
+
+/* Kategori och tjänster */
+.catField {
+  max-width: 360px;
+}
+
+.selectWrap {
+  position: relative;
+  display: block;
+}
+
+select.select {
+  width: 100%;
+  padding: 0 36px 0 14px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.selectIcon {
+  position: absolute;
+  right: 12px;
+  top: 15px;
+  color: var(--color-text-subtle);
+  pointer-events: none;
+}
+
+.groupLabel {
+  font-size: var(--text-md);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  height: 36px;
+  padding: 0 14px 0 12px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-md);
+  font-weight: 500;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border: 1px solid var(--color-border-strong);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.chipOn {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-ink);
+  border-color: var(--color-accent-border);
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.serviceRow {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1.2fr) 42px;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 0;
+  border-bottom: 0;
+  animation: var(--kf-rise) 0.25s ease both;
+}
+
+.serviceInput {
+  height: 42px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
+  font-size: var(--text-base);
+  outline: 0;
+  background: var(--color-surface);
+  min-width: 0;
+}
+
+.serviceInput:focus {
+  border-color: var(--color-accent);
+}
+
+.serviceRemove {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceRemove:hover {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+/* Phones: the service name gets its own line. */
+@media (max-width: 639px) {
+  .serviceRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 42px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-divider-soft);
+  }
+
+  .serviceName {
+    grid-column: 1 / -1;
+  }
+}
+
+.addService {
+  margin-top: 10px;
+  height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.addService:hover {
+  background: var(--color-accent-soft);
+}
+
+/* Öppettider */
+h2.hoursTitle {
+  margin-bottom: 10px;
+}
+
+.hoursRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-divider-soft);
+}
+
+.day {
+  width: 90px;
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.times {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: var(--kf-fade) 0.2s ease both;
+}
+
+.time {
+  height: 38px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
+  font-size: var(--text-md);
+  outline: 0;
+  background: var(--color-surface);
+}
+
+.time:focus {
+  border-color: var(--color-accent);
+}
+
+.dash,
+.closed {
+  color: var(--color-text-faint);
+}
+
+.closed {
+  font-size: var(--text-md);
+}
+
+/* Save bar: slides up from nothing while the form has unsaved changes. */
+.saveDock {
+  position: sticky;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 20;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-out);
+}
+
+.saveDockOpen {
+  grid-template-rows: 1fr;
+}
+
+.saveClip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.saveBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 12px 12px 20px;
+  border-radius: var(--radius-lg);
+  background: rgba(28, 28, 30, 0.94);
+  backdrop-filter: blur(16px);
+  color: #fff;
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.4);
+}
+
+.saveText {
+  font-size: var(--text-md);
+  font-weight: 500;
+}
+
+.saveActions {
+  display: flex;
+  gap: 8px;
+}
+
+.discard {
+  height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: #e9e8e2;
+  font-size: var(--text-md);
+  font-weight: 500;
+}
+
+.discard:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.save {
+  height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--color-ink);
+  font-size: var(--text-md);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease;
+}
+
+.save:active {
+  transform: scale(0.96);
+}
+
+.spinner {
+  width: 15px;
+  height: 15px;
+  border-radius: var(--radius-pill);
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-top-color: var(--color-ink);
+  animation: var(--kf-spin) 0.8s linear infinite;
+}

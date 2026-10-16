@@ -1,0 +1,78 @@
+.actions {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: auto;
+}
+
+.button {
+  height: 44px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: var(--text-base);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.saved {
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-soft);
+  color: var(--color-accent-ink);
+}
+
+.button:hover {
+  border-color: var(--color-border-hover);
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+.directions {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-base);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.directions:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+.directions:active {
+  transform: scale(0.96);
+}
+
+/* Phones: Spara and Dela share the row; directions move to the bottom bar. */
+@media (max-width: 719px) {
+  .actions {
+    display: grid;
+    width: 100%;
+  }
+
+  .directions {
+    display: none;
+  }
+}

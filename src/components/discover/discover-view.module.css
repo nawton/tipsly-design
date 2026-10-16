@@ -1,0 +1,143 @@
+.page {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 28px 24px clamp(64px, 8vw, 104px);
+}
+
+/* Breadcrumbs */
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+}
+
+.crumb {
+  color: var(--color-text-subtle);
+}
+
+.crumb:hover {
+  color: var(--color-ink);
+}
+
+.crumbCurrent {
+  color: var(--color-ink);
+}
+
+/* Heading */
+.header {
+  margin-top: 20px;
+  max-width: 760px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(36px, 5.6vw, 64px);
+  line-height: 1.02;
+  font-weight: 600;
+  letter-spacing: -0.042em;
+  text-wrap: balance;
+}
+
+.blurb {
+  margin: 14px 0 0;
+  font-size: var(--text-xl);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+/* Toolbar: sticky and blurred from 720px, a plain two-column grid on phones. */
+.toolbar {
+  position: sticky;
+  top: 60px;
+  z-index: 30;
+  margin: 24px -24px 0;
+  padding: 12px 24px;
+  background: rgba(245, 244, 239, 0.86);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Results */
+.results {
+  margin-top: 22px;
+  min-height: 420px;
+}
+
+.fade {
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s var(--ease-out);
+}
+
+.fading {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: none;
+}
+
+/* Floating list/map switch on phones */
+.pill {
+  display: none;
+}
+
+@media (max-width: 719px) {
+  .page {
+    padding-bottom: 120px;
+  }
+
+  .toolbar {
+    position: relative;
+    top: auto;
+    z-index: auto;
+    padding: 4px 24px;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .controls > form {
+    grid-column: 1 / -1;
+  }
+
+  .pill {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    z-index: 50;
+    width: max-content;
+    margin: 0 auto;
+    height: 48px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: var(--color-ink);
+    color: #fff;
+    font-size: var(--text-base);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.45);
+    transition: transform 0.15s ease;
+    animation: var(--kf-rise) 0.35s var(--ease-out) both;
+  }
+
+  .pill:active {
+    transform: scale(0.96);
+  }
+}

@@ -1,0 +1,29 @@
+.status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: #a1a2a6;
+}
+
+.label {
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.detail {
+  color: var(--color-text-subtle);
+}
+
+.open .dot {
+  background: var(--color-success);
+}
+
+.open .label {
+  color: var(--color-success-ink);
+}

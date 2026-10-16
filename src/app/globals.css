@@ -1,0 +1,303 @@
+/*
+ * Tipsly design tokens and base styles.
+ * Component styles live next to each component as CSS Modules and reference
+ * these variables, so palette or motion changes happen in one place.
+ */
+
+:root {
+  /* Surfaces */
+  --color-bg: #f5f4ef;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f4ee;
+  --color-surface-sunken: #f1f0ea;
+  --color-surface-hover: #f3f2ec;
+  --color-surface-subtle: #faf9f4;
+  --color-surface-warm: #f6f5ef;
+  --color-skeleton: #efeee8;
+
+  /* Text */
+  --color-ink: #1b1b1d;
+  --color-ink-2: #3a3b3f;
+  /* Every text tone below clears WCAG AA (4.5:1) on --color-bg and white. */
+  --color-text-muted: #55565b;
+  --color-text-subtle: #63646a;
+  --color-text-faint: #6b6c71;
+  /* Placeholders and decorative glyphs only, never for readable text. */
+  --color-text-placeholder: #7e7f84;
+
+  /* Borders and dividers */
+  --color-border: #e8e7e0;
+  --color-border-input: #e3e2db;
+  --color-border-soft: #e6e5de;
+  --color-border-strong: #dcdbd4;
+  --color-border-hover: #bebdb6;
+  --color-divider: #eeede6;
+  --color-divider-soft: #f0efe9;
+
+  /* Brand */
+  --color-accent: #1f5bff;
+  --color-accent-hover: #1749db;
+  --color-accent-link-hover: #1747d6;
+  --color-accent-ink: #1446d1;
+  --color-accent-soft: #eaf0ff;
+  --color-accent-border: #b9cbff;
+
+  /* Gold: the warm second accent ("guldkorn") for ratings and popularity. */
+  --color-gold: #e0a526;
+  --color-gold-ink: #7a5500;
+  --color-gold-soft: #fbf0d6;
+
+  /* Status */
+  --color-success: #1a7f45;
+  --color-success-ink: #136b3a;
+  --color-success-soft: #e6f4ec;
+  --color-warning: #d97706;
+  --color-warning-ink: #8a4b00;
+  --color-warning-soft: #fff1e0;
+  --color-danger: #b42323;
+  --color-danger-hover: #9a1d1d;
+  --color-danger-soft: #fdecec;
+  --color-danger-border: #e08a8a;
+
+  /* Dark surfaces */
+  --color-dark: #141416;
+  --color-dark-2: #1e1e21;
+  --color-dark-button: #333336;
+
+  /* Effects */
+  --ring-accent: 0 0 0 4px rgba(31, 91, 255, 0.12);
+  --shadow-popover: 0 32px 64px -32px rgba(20, 20, 30, 0.38), 0 4px 16px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 24px 48px -24px rgba(20, 20, 30, 0.3), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Typography */
+  --font-sans: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Type scale. Use these instead of pixel sizes. */
+  --text-2xs: 11px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-base: 15px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-2xl: 22px;
+  --text-3xl: 28px;
+  --text-4xl: 32px;
+  --text-5xl: 44px;
+  --text-6xl: 56px;
+
+  /* Corner radii */
+  --radius-xs: 4px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /*
+   * Keyframe names. CSS Modules scope animation names, so modules reference the
+   * shared keyframes below through these variables:
+   *   animation: var(--kf-rise) 0.35s var(--ease-out) both;
+   */
+  --kf-rise: tpRise;
+  --kf-fade: tpFade;
+  --kf-pop: tpPop;
+  --kf-spin: tpSpin;
+  --kf-pulse: tpPulse;
+  --kf-live: tpLive;
+  --kf-page-in: tpPageIn;
+
+  /* Layout */
+  --header-h: 68px;
+  --header-h-scrolled: 60px;
+  --page-max: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-link-hover);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(31, 91, 255, 0.16);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Prevent iOS from zooming into form fields. The bid field keeps its large type. */
+@media (max-width: 720px) {
+  input:not([data-keep-size]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+.leaflet-container {
+  font-family: inherit;
+  background: #ecebe5;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Shared motion. Components reference these by name in their modules. */
+@keyframes tpPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes tpSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tpFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tpRise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes tpPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes tpLive {
+  0% {
+    box-shadow: 0 0 0 0 rgba(26, 127, 69, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(26, 127, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 127, 69, 0);
+  }
+}
+
+@keyframes tpPageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,337 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.038em;
+}
+
+.lead {
+  margin: 6px 0 0;
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+.sampleChip {
+  height: 28px;
+  padding: 0 11px;
+  border-radius: var(--radius-pill);
+  background: var(--color-warning-soft);
+  color: var(--color-warning-ink);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* KPI cards: two columns on phones. */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 12px;
+}
+
+.kpi {
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kpiLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+}
+
+.kpiValue {
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpiDelta {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.deltaUp,
+.deltaDown {
+  font-weight: 600;
+  color: var(--color-success-ink);
+}
+
+.deltaDown {
+  color: var(--color-warning-ink);
+}
+
+@media (max-width: 639px) {
+  .kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .kpi {
+    padding: 16px;
+  }
+
+  .kpiValue {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* Chart */
+.chartCard,
+.card {
+  padding: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.chartHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.chartLabel {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.chart {
+  margin-top: 24px;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+@media (max-width: 559px) {
+  .chart {
+    gap: 2px;
+  }
+}
+
+.barSlot {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  cursor: default;
+}
+
+.bar {
+  width: 100%;
+  height: 0;
+  border-radius: var(--radius-xs) var(--radius-xs) 2px 2px;
+  background: #cfcec7;
+  opacity: 1;
+  transition:
+    height 0.7s var(--ease-out),
+    opacity 0.2s ease;
+  transition-delay: 0ms;
+}
+
+.barBoosted {
+  background: var(--color-accent);
+}
+
+.chartGrown .bar {
+  height: var(--h);
+  transition-delay: var(--delay);
+}
+
+.chartHovering .bar {
+  opacity: 0.45;
+  transition-delay: 0ms;
+}
+
+.chartHovering .barActive {
+  opacity: 1;
+}
+
+.axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 16px;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-xs);
+  background: #cfcec7;
+}
+
+.swatchBoost {
+  background: var(--color-accent);
+}
+
+/* Ranking and Boost cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.big {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.bigValue {
+  font-size: var(--text-5xl);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.bigNote {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+}
+
+.rankList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-divider);
+}
+
+.rankRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: var(--text-md);
+}
+
+.rankLabel {
+  color: var(--color-text-muted);
+}
+
+.rankValue {
+  font-weight: 600;
+}
+
+.footnote {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-text-subtle);
+}
+
+.boostHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.status {
+  height: 26px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusIdle {
+  background: var(--color-surface-sunken);
+  color: var(--color-ink-2);
+}
+
+.statusLeading {
+  background: var(--color-success-soft);
+  color: var(--color-success-ink);
+}
+
+.statusOutbid {
+  background: var(--color-warning-soft);
+  color: var(--color-warning-ink);
+}
+
+.boostText {
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: 1.5;
+  color: var(--color-ink-2);
+}
+
+.boostLink {
+  margin-top: auto;
+  align-self: flex-start;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-md);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.boostLink:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}

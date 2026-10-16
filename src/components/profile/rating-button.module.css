@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: var(--text-base);
+  color: var(--color-ink);
+}
+
+.button:hover {
+  color: var(--color-accent);
+}
+
+.value {
+  font-weight: 600;
+}
+
+.count {
+  color: var(--color-text-subtle);
+}
